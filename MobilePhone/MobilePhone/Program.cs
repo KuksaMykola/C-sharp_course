@@ -6,7 +6,9 @@ namespace MobilePhone
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Mobile mb = new Mobile();
+            //mb.setName;
+            Console.WriteLine("Hello World!" + mb.Name);
         }
     }
 }
