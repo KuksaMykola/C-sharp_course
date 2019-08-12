@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace MobilePhone
 {
@@ -9,6 +13,7 @@ namespace MobilePhone
             Mobile mb = new Mobile();
             //mb.setName;
             Console.WriteLine("Hello World!" + mb.Name);
+            Console.ReadKey();
         }
     }
 }
