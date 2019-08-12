@@ -4,18 +4,18 @@ using System.Text;
 
 namespace MobilePhone
 {
-    class Microphone
+    internal class Microphone
     {
         public Microphone(float impedance, float sensitivity)
         {
-            this.impedance = impedance;
-            this.sensitivity = sensitivity;
+            Impedance = impedance;
+            Sensitivity = sensitivity;
         }
         public Microphone()
         {
 
         }
-        public float impedance { get; private set; }=100;
-        public float sensitivity { get; private set; }=150;
+        public float Impedance { get; private set; }=100;
+        public float Sensitivity { get; private set; }=150;
     }
 }

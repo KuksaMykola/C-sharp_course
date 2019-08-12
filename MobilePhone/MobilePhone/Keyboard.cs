@@ -4,7 +4,18 @@ using System.Text;
 
 namespace MobilePhone
 {
-    class Keyboard
+    internal class Keyboard
     {
+        public Keyboard(uint numberOfKeys)
+        {
+            NumberOfKeys = numberOfKeys;
+        }
+
+        public Keyboard()
+        {
+            
+        }
+
+        public uint NumberOfKeys { get; private set; } = 10;
     }
 }

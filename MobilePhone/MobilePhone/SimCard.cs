@@ -5,18 +5,19 @@ using System.Text;
 namespace MobilePhone
 {
     
-    class SimCard
+    internal class SimCard
     {
-        public SimCard(uint[] number, string country)
+        public SimCard(string number, string country)
         {
             Number = number;
             Country = country;
         }
-        public SimCard()
-        {
 
+        public SimCard(string number)
+        {
+            Number = number;
         }
-        public uint[] Number { get; private set; } = { 0, 9, 8, 2, 5, 6, 1, 4, 8, 9 };
+        public string Number { get; private set; }
         public string Country { get; private set; } = "Ukraine";
     }
 }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MobilePhone
 {
-    class RandomAccessMemory
+    internal class RandomAccessMemory
     {
         public RandomAccessMemory(float capacity)
         {

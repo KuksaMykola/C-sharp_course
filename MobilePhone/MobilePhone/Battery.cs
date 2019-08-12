@@ -4,8 +4,8 @@ using System.Text;
 
 namespace MobilePhone
 {
-    enum BatteryType { NickelCadmium, NickelMetalHydride, LithiumIon, LithiumPolymer}
-    class Battery
+    internal enum BatteryType { NickelCadmium, NickelMetalHydride, LithiumIon, LithiumPolymer}
+    internal class Battery
     {
         public Battery(float length, float width, float thickness, float cpacity, float voltage, BatteryType type)
         {

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MobilePhone
 {
-    class Mobile
+    internal class Mobile
     {
         public Mobile(string name,
                       CircuitBoard circuitBoard,
@@ -23,6 +23,11 @@ namespace MobilePhone
             Keyboard = keyboard;
             Microphone = microphone;
             Speaker = speaker;
+        }
+
+        public Mobile(string name)
+        {
+            Name = name;
         }
         public Mobile()
         {

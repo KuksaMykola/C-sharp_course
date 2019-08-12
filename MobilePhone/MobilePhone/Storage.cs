@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MobilePhone
 {
-    class Storage
+    internal class Storage
     {
         public Storage(float capacity)
         {

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MobilePhone
 {
-    class ReadOnlyMemory
+    internal class ReadOnlyMemory
     {
         public ReadOnlyMemory(float capacity)
         {

@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 
 namespace MobilePhone
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            Mobile mb = new Mobile();
-            //mb.setName;
-            Console.WriteLine("Hello World!" + mb.Name);
+            Mobile mb = new Mobile("Nokia");
+            Console.WriteLine("Mobile phone has been created: " + mb.Name);
             Console.ReadKey();
         }
     }

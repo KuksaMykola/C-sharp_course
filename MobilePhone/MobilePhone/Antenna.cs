@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MobilePhone
 {
-    class Antenna
+    internal class Antenna
     {
         public Antenna(uint length,uint frequency)
         {
