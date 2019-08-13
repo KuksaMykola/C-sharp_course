@@ -4,40 +4,53 @@ using System.Text;
 
 namespace MobilePhone
 {
-    internal class Mobile
+    internal abstract class Mobile
     {
-        public Mobile(string name,
-                      CircuitBoard circuitBoard,
-                      Battery battery,
-                      Antenna antenna,
-                      Screen screen,
-                      Keyboard keyboard,
-                      Microphone microphone,
-                      Speaker speaker)
+        public Mobile(string name, CircuitBoard circuitBoard, Battery battery, Antenna antenna, Keyboard keyboard, Microphone microphone, Speaker speaker)
         {
             Name = name;
             CircuitBoard = circuitBoard;
             Battery = battery;
             Antenna = antenna;
-            Screen = screen;
             Keyboard = keyboard;
             Microphone = microphone;
             Speaker = speaker;
         }
 
-        public Mobile(string name)
+        protected Mobile(string name)
         {
             Name = name;
         }
-        public Mobile()
+
+        protected Mobile()
         {
 
         }
-        public String Name { get; set; } = "NewPhone";
+
+
+        public void Show(IScreenImage screenImage)
+        {
+
+            Screen.Show(screenImage);
+        }
+
+        public string GetDescription()
+        {
+            var descriptionBuilder = new StringBuilder();
+            descriptionBuilder.AppendLine($"Phone Name: {Name}");
+            descriptionBuilder.AppendLine($"Screen Type: {Screen.ToString()}");
+            descriptionBuilder.AppendLine(CircuitBoard.Ram.ToString());
+            descriptionBuilder.AppendLine(CircuitBoard.Rom.ToString());
+            descriptionBuilder.AppendLine(CircuitBoard.Storage.ToString());
+            descriptionBuilder.AppendLine(Battery.ToString());
+            return descriptionBuilder.ToString();
+        }
+
+        public string Name { get; set; } = "NewPhone";
         public CircuitBoard CircuitBoard { get; private set; } = new CircuitBoard();
         public Battery Battery { get; private set; } = new Battery();
         public Antenna Antenna { get; private set; } = new Antenna();
-        public Screen Screen { get; private set; } = new Screen();
+        public abstract Screen Screen { get;}
         public Keyboard Keyboard { get; private set; } = new Keyboard();
         public Microphone Microphone { get; private set; } = new Microphone();
         public Speaker Speaker { get; private set; } = new Speaker();

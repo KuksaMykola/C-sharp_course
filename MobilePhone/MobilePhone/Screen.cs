@@ -4,22 +4,19 @@ using System.Text;
 
 namespace MobilePhone
 {
-    internal enum ScreenType{ Monochrome,Colour }
-    internal class Screen
+    internal abstract class Screen
     {
-        public Screen(float diagonal, ScreenType type, bool touchSupport)
+        protected Screen(float diagonal)
         {
             Diagonal = diagonal;
-            Type = type;
-            TouchSupport = touchSupport;
         }
 
-        public Screen()
+        public float Diagonal { get; protected set; }
+        public abstract void Show(IScreenImage screenImage);
+        public abstract void Show(IScreenImage screenImage, int brightness);
+        public override string ToString()
         {
-            
+            return $"Diagonal is {Diagonal}";
         }
-        public float Diagonal { get; private set; } = 4;
-        public ScreenType Type { get; private set; }=ScreenType.Colour;
-        public bool TouchSupport { get; private set; } = true;
-    }  
+    }
 }

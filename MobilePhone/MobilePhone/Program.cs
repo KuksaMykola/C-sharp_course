@@ -10,8 +10,8 @@ namespace MobilePhone
     {
         public static void Main(string[] args)
         {
-            Mobile mb = new Mobile("Nokia");
-            Console.WriteLine("Mobile phone has been created: " + mb.Name);
+            Mobile mb = new SimcorpMobile("Nokia");
+            Console.WriteLine(mb.GetDescription());
             Console.ReadKey();
         }
     }

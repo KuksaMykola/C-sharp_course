@@ -4,16 +4,23 @@ using System.Text;
 
 namespace MobilePhone
 {
-    internal class ReadOnlyMemory
+    internal class ReadOnlyMemory:Memory
     {
-        public ReadOnlyMemory(float capacity)
+        public ReadOnlyMemory(float capacity):base(capacity)
         {
-            Capacity = capacity;
         }
         public ReadOnlyMemory()
         {
 
         }
-        public float Capacity { get; private set; } = 500;
+        public override void Read()
+        {
+            Console.WriteLine("Reading data from ROM...");
+        }
+
+        public override string ToString()
+        {
+            return $"ROM capacity is {Capacity}";
+        }
     }
 }
