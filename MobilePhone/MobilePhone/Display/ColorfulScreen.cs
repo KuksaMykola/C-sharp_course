@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System;
 
-namespace MobilePhone
+namespace SimCorp.IMS.Display
 {
     class ColorfulScreen : Screen
     {
-        public ColorfulScreen(float diagonal) : base(diagonal)
+        public ColorfulScreen(float diagonal,int colorDepth) : base(diagonal)
         {
+            ColorDepth = colorDepth;
         }
 
         public override void Show(IScreenImage screenImage)

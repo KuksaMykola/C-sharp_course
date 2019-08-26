@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System;
 
-namespace MobilePhone
+namespace SimCorp.IMS.Display
 {
     class MonochromeScreen: Screen
     {
         public MonochromeScreen(float diagonal) : base(diagonal)
         {
+            ColorDepth = 1;
         }
 
         public override void Show(IScreenImage screenImage)
@@ -25,6 +22,12 @@ namespace MobilePhone
         {
             return "Monochrome Screen."+base.ToString();
         }
+
+        public override ScreenResolution Resolution {
+            get { return vResolution; } 
+        }
+
+        private readonly ScreenResolution vResolution= new ScreenResolution(480, 800);
 
     }
 }

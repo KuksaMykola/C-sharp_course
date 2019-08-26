@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using SimCorp.IMS.Memory;
 
-namespace MobilePhone
+namespace SimCorp.IMS
 {
     internal class CircuitBoard
     {

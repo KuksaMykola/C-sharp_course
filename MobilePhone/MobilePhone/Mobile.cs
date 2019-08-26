@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using SimCorp.IMS.Audio;
+using SimCorp.IMS.Display;
 
-namespace MobilePhone
+namespace SimCorp.IMS
 {
     internal abstract class Mobile
     {
@@ -34,7 +36,7 @@ namespace MobilePhone
             Screen.Show(screenImage);
         }
 
-        public string GetDescription()
+        public override string ToString()
         {
             var descriptionBuilder = new StringBuilder();
             descriptionBuilder.AppendLine($"Phone Name: {Name}");

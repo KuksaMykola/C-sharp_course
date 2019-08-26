@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SimCorp.IMS.Audio;
+using SimCorp.IMS.Display;
 
-namespace MobilePhone
+namespace SimCorp.IMS
 {
     internal class SimcorpMobile : Mobile
     {
@@ -20,8 +22,7 @@ namespace MobilePhone
         {
         }
 
-
-        public override Screen Screen { get { return lcdScreen; }}
-        private readonly LCDScreen lcdScreen = new LCDScreen(6);
+        public override Screen Screen { get { return vRetinaScreen; }}
+        private readonly RetinaScreen vRetinaScreen = new RetinaScreen(6,16,new ScreenResolution(1080,1920));
     }
 }

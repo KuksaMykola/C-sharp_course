@@ -1,10 +1,10 @@
-﻿using System;
+using System;
 
-namespace MobilePhone
+namespace SimCorp.IMS.Display
 {
     internal class LCDScreen:ColorfulScreen
     {
-        public LCDScreen(float diagonal) : base(diagonal)
+        public LCDScreen(float diagonal,int colorDepth) : base(diagonal,colorDepth)
         {
         }
         public override void Show(IScreenImage screenImage)

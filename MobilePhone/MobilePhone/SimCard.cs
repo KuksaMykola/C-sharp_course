@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MobilePhone
+namespace SimCorp.IMS
 {
     
     internal class SimCard

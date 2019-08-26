@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System;
 
-namespace MobilePhone
+namespace SimCorp.IMS.Display
 {
     class OLEDScreen: ColorfulScreen
     {
-        public OLEDScreen(float diagonal) : base(diagonal)
+        public OLEDScreen(float diagonal,int colorDepth) : base(diagonal,colorDepth)
         {
         }
 

@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System;
 
-namespace MobilePhone
+namespace SimCorp.IMS.Memory
 {
     internal class RandomAccessMemory:Memory
     {

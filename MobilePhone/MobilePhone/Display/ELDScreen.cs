@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System;
 
-namespace MobilePhone
+namespace SimCorp.IMS.Display
 {
     internal class ELDScreen:ColorfulScreen
     {
-        public ELDScreen(float diagonal) : base(diagonal)
+        public ELDScreen(float diagonal,int colorDepth) : base(diagonal,colorDepth)
         {
         }
 
