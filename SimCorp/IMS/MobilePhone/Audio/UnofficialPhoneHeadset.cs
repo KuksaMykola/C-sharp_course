@@ -2,9 +2,16 @@
 {
     public class UnofficialPhoneHeadset:IPlayback
     {
+        private IOutput Output;
+
+        public UnofficialPhoneHeadset(IOutput output)
+        {
+            Output = output;
+        }
+
         public void Play(object data)
         {
-            System.Console.WriteLine($"{nameof(UnofficialPhoneHeadset)} sound");
+            Output.WriteLine($"{nameof(UnofficialPhoneHeadset)} sound");
         }
 
         public override string ToString()

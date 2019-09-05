@@ -8,9 +8,15 @@ namespace SimCorp.IMS.MobilePhone.Charg
 {
     public class CarCharger:ICharger
     {
+        private IOutput Output;
+
+        public CarCharger(IOutput output)
+        {
+            Output = output;
+        }
         public void Charge()
         {
-            System.Console.WriteLine($"{nameof(CarCharger)} charg");
+            Output.WriteLine($"{nameof(CarCharger)} charg");
         }
 
         public override string ToString()

@@ -10,10 +10,9 @@ namespace SimCorp.IMS.ConsoleApp
         static int GetIndexFromConsole(int leftRange, int rightRange)
         {
             var index  = -1;
-            bool numberInputed;
             while(true)
             {
-                numberInputed = true;
+                var numberInputed = true;
                 try
                 {
                     var userInput = Console.ReadLine();
@@ -46,8 +45,9 @@ namespace SimCorp.IMS.ConsoleApp
 
         static IPlayback GetPlayBackComponent()
         {
+            var outDevice = new ConsoleOutput();
             Console.WriteLine("Select a playback component (specify index):");
-            IPlayback[] allPlaybackDevices =new IPlayback[]{new iPhoneHeadset(), new SamsungHeadset(), new UnofficialPhoneHeadset(),new ExternalPhoneSpeaker()};
+            IPlayback[] allPlaybackDevices =new IPlayback[]{new iPhoneHeadset(outDevice), new SamsungHeadset(outDevice), new UnofficialPhoneHeadset(outDevice),new ExternalPhoneSpeaker(outDevice)};
             for(var i = 0; i < allPlaybackDevices.Length; i++)
             {
                 Console.WriteLine($"{i+1}-{allPlaybackDevices[i]}");
@@ -58,8 +58,9 @@ namespace SimCorp.IMS.ConsoleApp
 
         private static ICharger GetChargerDevice()
         {
+            var outDevice = new ConsoleOutput();
             Console.WriteLine("Select a charger device (specify index):");
-            ICharger[] allChargerDevices = new ICharger[] {new SocetCharger(), new LaptopCableCharger(), new PowerBankCharger(), new CarCharger(), new ContactlessCharger()};
+            ICharger[] allChargerDevices = new ICharger[] {new SocetCharger(outDevice), new LaptopCableCharger(outDevice), new PowerBankCharger(outDevice), new CarCharger(outDevice), new ContactlessCharger(outDevice)};
             for (var i = 0; i < allChargerDevices.Length; i++)
             {
                 Console.WriteLine($"{i + 1}-{allChargerDevices[i]}");

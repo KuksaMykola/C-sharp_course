@@ -8,9 +8,15 @@ namespace SimCorp.IMS.MobilePhone.Charg
 {
     public class ContactlessCharger:ICharger
     {
+        private IOutput Output;
+
+        public ContactlessCharger(IOutput output)
+        {
+            Output = output;
+        }
         public void Charge()
         {
-            System.Console.WriteLine($"{nameof(ContactlessCharger)} charg"); ;
+            Output.WriteLine($"{nameof(ContactlessCharger)} charg"); ;
         }
 
         public override string ToString()

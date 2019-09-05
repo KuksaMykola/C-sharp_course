@@ -8,9 +8,16 @@ namespace SimCorp.IMS.MobilePhone.Charg
 {
     public class SocetCharger:ICharger
     {
+        private IOutput Output;
+
+        public SocetCharger(IOutput output)
+        {
+            Output = output;
+        }
+
         public void Charge()
         {
-            System.Console.WriteLine($"{nameof(SocetCharger)} charg"); 
+            Output.WriteLine($"{nameof(SocetCharger)} charg"); 
         }
 
         public override string ToString()

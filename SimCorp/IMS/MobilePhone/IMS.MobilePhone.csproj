@@ -71,6 +71,7 @@
     <Compile Include="Display\OLEDScreen.cs" />
     <Compile Include="Display\RetinaScreen.cs" />
     <Compile Include="Display\Screen.cs" />
+    <Compile Include="IOutput.cs" />
     <Compile Include="Keyboard.cs" />
     <Compile Include="Memory\Memory.cs" />
     <Compile Include="Memory\RandomAccessMemory.cs" />

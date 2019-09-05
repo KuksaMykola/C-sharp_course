@@ -2,9 +2,16 @@
 {
     public class ExternalPhoneSpeaker:IPlayback
     {
+        private IOutput Output;
+
+        public ExternalPhoneSpeaker(IOutput output)
+        {
+            Output = output;
+        }
+
         public void Play(object data)
         {
-            System.Console.WriteLine($"{nameof(ExternalPhoneSpeaker)} sound");
+            Output.WriteLine($"{nameof(ExternalPhoneSpeaker)} sound");
         }
 
         public override string ToString()

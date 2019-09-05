@@ -2,6 +2,12 @@
 {
     public class Speaker : IPlayback
     {
+        private IOutput Output;
+
+        public Speaker(IOutput output)
+        {
+            Output = output;
+        }
         public Speaker(float frequency, float power)
         {
             Frequency = frequency;

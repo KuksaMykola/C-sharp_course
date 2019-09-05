@@ -8,9 +8,16 @@ namespace SimCorp.IMS.MobilePhone.Charg
 {
     public class PowerBankCharger:ICharger
     {
+        private IOutput Output;
+
+        public PowerBankCharger(IOutput output)
+        {
+            Output = output;
+        }
+
         public void Charge()
         {
-            System.Console.WriteLine($"{nameof(PowerBankCharger)} charg");
+            Output.WriteLine($"{nameof(PowerBankCharger)} charg");
         }
 
         public override string ToString()
