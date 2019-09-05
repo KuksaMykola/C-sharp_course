@@ -1,6 +1,6 @@
 ﻿namespace SimCorp.IMS.MobilePhone
 {
-    internal class Antenna
+    public class Antenna
     {
         public Antenna(uint length,uint frequency)
         {

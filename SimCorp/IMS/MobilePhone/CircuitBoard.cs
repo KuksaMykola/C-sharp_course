@@ -2,7 +2,7 @@
 
 namespace SimCorp.IMS.MobilePhone
 {
-    internal class CircuitBoard
+    public class CircuitBoard
     {
 
         public Microprocessor Microprocessor=new Microprocessor(1.5f,3);

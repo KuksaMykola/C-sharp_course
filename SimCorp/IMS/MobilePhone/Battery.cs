@@ -1,7 +1,7 @@
 ﻿namespace SimCorp.IMS.MobilePhone
 {
-    internal enum BatteryType { NickelCadmium, NickelMetalHydride, LithiumIon, LithiumPolymer}
-    internal class Battery
+    public enum BatteryType { NickelCadmium, NickelMetalHydride, LithiumIon, LithiumPolymer}
+    public class Battery
     {
         public Battery(float length, float width, float thickness, float capacity, float voltage, BatteryType type)
         {

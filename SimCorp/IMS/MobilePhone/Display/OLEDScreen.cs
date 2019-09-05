@@ -2,7 +2,7 @@ using System;
 
 namespace SimCorp.IMS.MobilePhone.Display
 {
-    class OLEDScreen: ColorfulScreen
+    public class OLEDScreen: ColorfulScreen
     {
         public OLEDScreen(float diagonal,int colorDepth) : base(diagonal,colorDepth)
         {

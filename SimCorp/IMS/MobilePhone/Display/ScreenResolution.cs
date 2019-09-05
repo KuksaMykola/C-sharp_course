@@ -2,7 +2,7 @@
 
 namespace SimCorp.IMS.MobilePhone.Display
 {
-    internal class ScreenResolution
+    public class ScreenResolution
     {
         public ScreenResolution(int horizontalPixels,int verticalPixels )
         {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SimCorp.IMS.MobilePhone.Charg
 {
-    interface ICharger
+    public interface ICharger
     {
             void Charge();
     }

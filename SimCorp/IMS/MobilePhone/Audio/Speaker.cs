@@ -1,6 +1,6 @@
 ﻿namespace SimCorp.IMS.MobilePhone.Audio
 {
-    internal class Speaker : IPlayback
+    public class Speaker : IPlayback
     {
         public Speaker(float frequency, float power)
         {

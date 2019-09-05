@@ -2,7 +2,7 @@ using System;
 
 namespace SimCorp.IMS.MobilePhone.Memory
 {
-    internal class RandomAccessMemory:Memory
+    public class RandomAccessMemory:Memory
     {
         public RandomAccessMemory(float capacity):base(capacity)
         {

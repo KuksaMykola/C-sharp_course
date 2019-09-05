@@ -2,7 +2,7 @@ using System;
 
 namespace SimCorp.IMS.MobilePhone.Memory
 {
-    internal class ReadOnlyMemory:Memory
+    public class ReadOnlyMemory:Memory
     {
         public ReadOnlyMemory(float capacity):base(capacity)
         {

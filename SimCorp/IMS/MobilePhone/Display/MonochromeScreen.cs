@@ -2,7 +2,7 @@ using System;
 
 namespace SimCorp.IMS.MobilePhone.Display
 {
-    class MonochromeScreen: Screen
+    public class MonochromeScreen: Screen
     {
         public MonochromeScreen(float diagonal) : base(diagonal)
         {

@@ -3,7 +3,7 @@ using SimCorp.IMS.MobilePhone.Display;
 
 namespace SimCorp.IMS.MobilePhone
 {
-    internal class SimcorpMobile : Mobile
+    public class SimcorpMobile : Mobile
     {
         public SimcorpMobile(string name, CircuitBoard circuitBoard, Battery battery, Antenna antenna,Keyboard keyboard, Microphone microphone, Speaker speaker) : base(name, circuitBoard, battery, antenna, keyboard, microphone, speaker)
         {

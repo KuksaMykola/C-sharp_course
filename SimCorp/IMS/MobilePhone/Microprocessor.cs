@@ -1,6 +1,6 @@
 ﻿namespace SimCorp.IMS.MobilePhone
 {
-    class Microprocessor
+    public class Microprocessor
     {
         public Microprocessor(float frequency, uint numberOfCores)
         {

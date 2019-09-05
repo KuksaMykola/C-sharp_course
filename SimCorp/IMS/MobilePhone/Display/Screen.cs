@@ -2,7 +2,7 @@ using System.Text;
 
 namespace SimCorp.IMS.MobilePhone.Display
 {
-    internal abstract class Screen
+    public abstract class Screen
     {
         protected Screen(float diagonal)
         {

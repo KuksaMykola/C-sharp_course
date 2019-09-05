@@ -2,7 +2,7 @@
 
 namespace SimCorp.IMS.MobilePhone.Display
 {
-    class RetinaScreen: ColorfulScreen 
+    public class RetinaScreen: ColorfulScreen 
     {
         public RetinaScreen(float diagonal,int colorDepth,ScreenResolution resolution) : base(diagonal,colorDepth)
         {

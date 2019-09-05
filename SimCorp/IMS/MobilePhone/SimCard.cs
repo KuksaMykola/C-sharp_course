@@ -1,7 +1,6 @@
 ﻿namespace SimCorp.IMS.MobilePhone
 {
-    
-    internal class SimCard
+    public class SimCard
     {
         public SimCard(string number, string country)
         {

@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 
 namespace SimCorp.IMS.MobilePhone.Charg
 {
-    class ContactlessCharger:ICharger
+    public class ContactlessCharger:ICharger
     {
         public void Charge()
         {
             System.Console.WriteLine($"{nameof(ContactlessCharger)} charg"); ;
+        }
+
+        public override string ToString()
+        {
+            return nameof(ContactlessCharger);
         }
     }
 }

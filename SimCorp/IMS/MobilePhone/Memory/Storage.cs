@@ -2,7 +2,7 @@ using System;
 
 namespace SimCorp.IMS.MobilePhone.Memory
 {
-    internal class Storage:Memory
+    public class Storage:Memory
     {
         public Storage(float capacity):base(capacity)
         {

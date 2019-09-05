@@ -1,6 +1,6 @@
 ﻿namespace SimCorp.IMS.MobilePhone
 {
-    internal class Keyboard
+    public class Keyboard
     {
         public Keyboard(uint numberOfKeys)
         {

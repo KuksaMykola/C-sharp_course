@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 
 namespace SimCorp.IMS.MobilePhone.Charg
 {
-    class PowerBankCharger:ICharger
+    public class PowerBankCharger:ICharger
     {
         public void Charge()
         {
             System.Console.WriteLine($"{nameof(PowerBankCharger)} charg");
+        }
+
+        public override string ToString()
+        {
+            return nameof(PowerBankCharger);
         }
     }
 }

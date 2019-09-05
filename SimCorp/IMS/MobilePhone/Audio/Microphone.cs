@@ -1,6 +1,6 @@
 ﻿namespace SimCorp.IMS.MobilePhone.Audio
 {
-    internal class Microphone
+    public class Microphone
     {
         public Microphone(float impedance, float sensitivity)
         {

@@ -5,7 +5,7 @@ using SimCorp.IMS.MobilePhone.Display;
 
 namespace SimCorp.IMS.MobilePhone
 {
-    internal abstract class Mobile
+    public abstract class Mobile
     {
         protected Mobile(string name, CircuitBoard circuitBoard, Battery battery, Antenna antenna, Keyboard keyboard, Microphone microphone, Speaker speaker)
         {

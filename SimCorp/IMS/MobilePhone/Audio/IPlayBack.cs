@@ -1,6 +1,6 @@
 ﻿namespace SimCorp.IMS.MobilePhone.Audio
 {
-    interface IPlayback
+    public interface IPlayback
     {
         void Play(object data);
     }

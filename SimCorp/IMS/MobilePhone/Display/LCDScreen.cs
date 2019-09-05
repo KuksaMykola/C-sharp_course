@@ -2,7 +2,7 @@ using System;
 
 namespace SimCorp.IMS.MobilePhone.Display
 {
-    internal class LCDScreen:ColorfulScreen
+    public class LCDScreen:ColorfulScreen
     {
         public LCDScreen(float diagonal,int colorDepth) : base(diagonal,colorDepth)
         {

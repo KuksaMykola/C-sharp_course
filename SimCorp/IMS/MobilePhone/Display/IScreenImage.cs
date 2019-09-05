@@ -1,6 +1,6 @@
 namespace SimCorp.IMS.MobilePhone.Display
 {
-    internal interface IScreenImage
+    public interface IScreenImage
     {
         double Width { get; set; }
         double Height { get; set; }

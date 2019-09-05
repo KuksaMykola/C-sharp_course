@@ -1,6 +1,6 @@
 namespace SimCorp.IMS.MobilePhone.Memory
 {
-    internal abstract class Memory
+    public abstract class Memory
     {
         protected Memory(float capacity)
         {
