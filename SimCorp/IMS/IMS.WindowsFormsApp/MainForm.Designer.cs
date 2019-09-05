@@ -1,4 +1,4 @@
-﻿namespace IMS.WindowsFormsApp
+﻿namespace SimCorp.IMS.WindowsFormsApp
 {
     partial class MainForm
     {

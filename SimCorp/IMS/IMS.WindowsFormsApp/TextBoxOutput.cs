@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SimCorp.IMS.MobilePhone;
 
-namespace IMS.WindowsFormsApp
+namespace SimCorp.IMS.WindowsFormsApp
 {
     class TextBoxOutput:IOutput
     {

@@ -11,7 +11,7 @@ using SimCorp.IMS.MobilePhone;
 using SimCorp.IMS.MobilePhone.Audio;
 using SimCorp.IMS.MobilePhone.Charg;
 
-namespace IMS.WindowsFormsApp
+namespace SimCorp.IMS.WindowsFormsApp
 {
     public partial class MainForm : Form
     {
