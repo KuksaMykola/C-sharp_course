@@ -48,6 +48,10 @@ namespace SimCorp.IMS
             return descriptionBuilder.ToString();
         }
 
+        public void Play(object data)
+        {
+            PlayBackComponent.Play(data);
+        }
         public string Name { get; set; } = "NewPhone";
         public CircuitBoard CircuitBoard { get; private set; } = new CircuitBoard();
         public Battery Battery { get; private set; } = new Battery();
@@ -56,5 +60,6 @@ namespace SimCorp.IMS
         public Keyboard Keyboard { get; private set; } = new Keyboard();
         public Microphone Microphone { get; private set; } = new Microphone();
         public Speaker Speaker { get; private set; } = new Speaker();
+        public IPlayback PlayBackComponent { get; set; }
     }
 }
