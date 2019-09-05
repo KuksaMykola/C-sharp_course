@@ -47,7 +47,13 @@ namespace SimCorp.IMS.ConsoleApp
         {
             var outDevice = new ConsoleOutput();
             Console.WriteLine("Select a playback component (specify index):");
-            IPlayback[] allPlaybackDevices =new IPlayback[]{new iPhoneHeadset(outDevice), new SamsungHeadset(outDevice), new UnofficialPhoneHeadset(outDevice),new ExternalPhoneSpeaker(outDevice)};
+            IPlayback[] allPlaybackDevices =new IPlayback[]
+            {
+                new iPhoneHeadset(outDevice),
+                new SamsungHeadset(outDevice),
+                new UnofficialPhoneHeadset(outDevice),
+                new ExternalPhoneSpeaker(outDevice)
+            };
             for(var i = 0; i < allPlaybackDevices.Length; i++)
             {
                 Console.WriteLine($"{i+1}-{allPlaybackDevices[i]}");
@@ -60,7 +66,14 @@ namespace SimCorp.IMS.ConsoleApp
         {
             var outDevice = new ConsoleOutput();
             Console.WriteLine("Select a charger device (specify index):");
-            ICharger[] allChargerDevices = new ICharger[] {new SocetCharger(outDevice), new LaptopCableCharger(outDevice), new PowerBankCharger(outDevice), new CarCharger(outDevice), new ContactlessCharger(outDevice)};
+            ICharger[] allChargerDevices = new ICharger[]
+            {
+                new SocetCharger(outDevice),
+                new LaptopCableCharger(outDevice),
+                new PowerBankCharger(outDevice),
+                new CarCharger(outDevice),
+                new ContactlessCharger(outDevice)
+            };
             for (var i = 0; i < allChargerDevices.Length; i++)
             {
                 Console.WriteLine($"{i + 1}-{allChargerDevices[i]}");
