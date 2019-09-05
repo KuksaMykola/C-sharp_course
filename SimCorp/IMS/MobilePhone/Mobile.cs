@@ -1,12 +1,13 @@
 ﻿using System.Text;
 using SimCorp.IMS.MobilePhone.Audio;
+using SimCorp.IMS.MobilePhone.Charg;
 using SimCorp.IMS.MobilePhone.Display;
 
 namespace SimCorp.IMS.MobilePhone
 {
     internal abstract class Mobile
     {
-        public Mobile(string name, CircuitBoard circuitBoard, Battery battery, Antenna antenna, Keyboard keyboard, Microphone microphone, Speaker speaker)
+        protected Mobile(string name, CircuitBoard circuitBoard, Battery battery, Antenna antenna, Keyboard keyboard, Microphone microphone, Speaker speaker)
         {
             Name = name;
             CircuitBoard = circuitBoard;
@@ -50,6 +51,11 @@ namespace SimCorp.IMS.MobilePhone
         {
             PlayBackComponent.Play(data);
         }
+
+        public void Charge()
+        {
+            ChargerDevice.Charge();
+        }
         public string Name { get; set; } = "NewPhone";
         public CircuitBoard CircuitBoard { get; private set; } = new CircuitBoard();
         public Battery Battery { get; private set; } = new Battery();
@@ -59,5 +65,6 @@ namespace SimCorp.IMS.MobilePhone
         public Microphone Microphone { get; private set; } = new Microphone();
         public Speaker Speaker { get; private set; } = new Speaker();
         public IPlayback PlayBackComponent { get; set; }
+        public ICharger ChargerDevice { get; set; }
     }
 }

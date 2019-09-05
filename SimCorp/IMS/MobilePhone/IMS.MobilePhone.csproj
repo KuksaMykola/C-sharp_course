@@ -55,6 +55,12 @@
     <Compile Include="Audio\Speaker.cs" />
     <Compile Include="Audio\UnofficialPhoneHeadset.cs" />
     <Compile Include="Battery.cs" />
+    <Compile Include="Charg\CarCharger.cs" />
+    <Compile Include="Charg\ContactlessCharger.cs" />
+    <Compile Include="Charg\ICharger.cs" />
+    <Compile Include="Charg\LaptopCableCharger.cs" />
+    <Compile Include="Charg\PowerBankCharger.cs" />
+    <Compile Include="Charg\SocetCharger.cs" />
     <Compile Include="CircuitBoard.cs" />
     <Compile Include="Display\ColorfulScreen.cs" />
     <Compile Include="Display\ScreenResolution.cs" />
