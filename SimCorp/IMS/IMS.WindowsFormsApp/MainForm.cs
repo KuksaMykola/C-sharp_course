@@ -16,7 +16,7 @@ namespace SimCorp.IMS.WindowsFormsApp
     public partial class MainForm : Form
     {
         private IOutput Output;
-        private Mobile MobilePhone = new SimcorpMobile("Samsung");
+        private readonly Mobile MobilePhone = new SimcorpMobile("Samsung");
         public MainForm()
         {
             InitializeComponent();

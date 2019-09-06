@@ -82,7 +82,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MobilePhone\IMS.MobilePhone.csproj">
+    <ProjectReference Include="..\IMS.MobilePhone\IMS.MobilePhone.csproj">
       <Project>{8e95e989-60e2-4428-b16f-159d183d10b9}</Project>
       <Name>IMS.MobilePhone</Name>
     </ProjectReference>
