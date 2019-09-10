@@ -7,7 +7,8 @@ namespace SimCorp.IMS.MobilePhone
 {
     public abstract class Mobile
     {
-        protected Mobile(string name, CircuitBoard circuitBoard, Battery battery, Antenna antenna, Keyboard keyboard, Microphone microphone, Speaker speaker)
+        protected Mobile(string name, CircuitBoard circuitBoard, Battery battery, Antenna antenna, Keyboard keyboard,
+            Microphone microphone, Speaker speaker)
         {
             Name = name;
             CircuitBoard = circuitBoard;
@@ -56,15 +57,17 @@ namespace SimCorp.IMS.MobilePhone
         {
             ChargerDevice.Charge();
         }
+
         public string Name { get; set; } = "NewPhone";
         public CircuitBoard CircuitBoard { get; private set; } = new CircuitBoard();
         public Battery Battery { get; private set; } = new Battery();
         public Antenna Antenna { get; private set; } = new Antenna();
-        public abstract Screen Screen { get;}
+        public abstract Screen Screen { get; }
         public Keyboard Keyboard { get; private set; } = new Keyboard();
         public Microphone Microphone { get; private set; } = new Microphone();
         public Speaker Speaker { get; private set; } = new Speaker();
         public IPlayback PlayBackComponent { get; set; }
         public ICharger ChargerDevice { get; set; }
+        public SMSProvider SmsProvider { get; set; }
     }
 }

@@ -225,6 +225,8 @@
             this.Controls.Add(this.OutTextBox);
             this.Controls.Add(this.ChargerDevicesGroupBox);
             this.Controls.Add(this.PlayBackGoupBox);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "MainForm";
             this.Text = "Win Form App";
             this.Load += new System.EventHandler(this.MainFormLoad);
