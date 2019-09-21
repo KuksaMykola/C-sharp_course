@@ -52,15 +52,14 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="ExternalPhoneSpeakerTest.cs" />
+    <Compile Include="Audio\ExternalPhoneSpeakerTest.cs" />
+    <Compile Include="Audio\iPhoneHeadsetTest.cs" />
+    <Compile Include="Charge\PowerBankChargerTest.cs" />
+    <Compile Include="Charge\SocetChargerTest.cs" />
     <Compile Include="FakeOutput.cs" />
-    <Compile Include="FakeTimeInfo.cs" />
-    <Compile Include="iPhoneHeadsetTest.cs" />
-    <Compile Include="MessageFormaterTest.cs" />
-    <Compile Include="PowerBankChargerTest.cs" />
+    <Compile Include="Message\MessageFormaterTest.cs" />
+    <Compile Include="Message\MessageStorageTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SMSProviderTest.cs" />
-    <Compile Include="SocetChargerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\IMS.MobilePhone\IMS.MobilePhone.csproj">
@@ -68,6 +67,7 @@
       <Name>IMS.MobilePhone</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

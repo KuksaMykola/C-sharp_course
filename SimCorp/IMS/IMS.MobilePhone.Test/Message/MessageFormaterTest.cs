@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Globalization;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using SimCorp.IMS.MobilePhone.Message;
 
-namespace SimCorp.IMS.MobilePhone.Test
+namespace SimCorp.IMS.MobilePhone.Test.Message
 {
     [TestClass]
     public class MessageFormaterTest
@@ -11,13 +13,13 @@ namespace SimCorp.IMS.MobilePhone.Test
         {
             //Arrange
             var messageFormater = new MessageFormater();
-            var message = "Test message!";
+            var message = new MobilePhone.Message.Message("Test message!");
 
             //Act
             var resMessage = messageFormater.FormaterMethod(message);
 
             //Assert
-            Assert.AreEqual(message+Environment.NewLine, resMessage);
+            Assert.AreEqual(message, resMessage);
         }
 
         [TestMethod]
@@ -25,14 +27,13 @@ namespace SimCorp.IMS.MobilePhone.Test
         {
             //Arrange
             var messageFormater = new MessageFormater();
-            messageFormater.TimeInfo=new FakeTimeInfo("FakedTime");
             messageFormater.FormaterMethod = messageFormater.StartWithDateTimeFormat;
 
             //Act
-            var resMessage = messageFormater.FormaterMethod(" Test message");
+            var message = messageFormater.FormaterMethod(new MobilePhone.Message.Message("Test message"));
 
             //Assert
-            Assert.AreEqual("FakedTime Test message" + Environment.NewLine, resMessage);
+            Assert.AreEqual(message.ReceivingTime.ToString(CultureInfo.InvariantCulture) + " Test message", message.Text);
         }
 
         [TestMethod]
@@ -40,14 +41,13 @@ namespace SimCorp.IMS.MobilePhone.Test
         {
             //Arrange
             var messageFormater = new MessageFormater();
-            messageFormater.TimeInfo = new FakeTimeInfo("FakedTime");
             messageFormater.FormaterMethod = messageFormater.EndWithDateTimeFormat;
 
             //Act
-            var resMessage = messageFormater.FormaterMethod("Test message ");
+            var message = messageFormater.FormaterMethod(new MobilePhone.Message.Message("Test message"));
 
             //Assert
-            Assert.AreEqual("Test message FakedTime" + Environment.NewLine, resMessage);
+            Assert.AreEqual("Test message "+message.ReceivingTime.ToString(CultureInfo.InvariantCulture), message.Text);
         }
 
         [TestMethod]
@@ -56,12 +56,13 @@ namespace SimCorp.IMS.MobilePhone.Test
             //Arrange
             var messageFormater = new MessageFormater();
             messageFormater.FormaterMethod = messageFormater.UpperCaseFormat;
+            var message = new MobilePhone.Message.Message("TEST MESSAGE");
 
             //Act
-            var resMessage = messageFormater.FormaterMethod("Test message");
+            var resMessage = messageFormater.FormaterMethod(new MobilePhone.Message.Message("Test message"));
 
             //Assert
-            Assert.AreEqual(("TEST MESSAGE" + Environment.NewLine).ToUpper(), resMessage);
+            Assert.AreEqual(message.ToString(), resMessage.ToString());
         }
 
         [TestMethod]
@@ -70,12 +71,13 @@ namespace SimCorp.IMS.MobilePhone.Test
             //Arrange
             var messageFormater = new MessageFormater();
             messageFormater.FormaterMethod = messageFormater.LowerCaseFormat;
+            var message = new MobilePhone.Message.Message("test message");
 
             //Act
-            var resMessage = messageFormater.FormaterMethod("Test message");
+            var resMessage = messageFormater.FormaterMethod(new MobilePhone.Message.Message("Test message"));
 
             //Assert
-            Assert.AreEqual(("test message"+ Environment.NewLine).ToLower(), resMessage);
+            Assert.AreEqual(message.ToString(), resMessage.ToString());
         }
     }
 }

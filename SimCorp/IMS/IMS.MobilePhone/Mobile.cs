@@ -2,6 +2,7 @@
 using SimCorp.IMS.MobilePhone.Audio;
 using SimCorp.IMS.MobilePhone.Charg;
 using SimCorp.IMS.MobilePhone.Display;
+using SimCorp.IMS.MobilePhone.Message;
 
 namespace SimCorp.IMS.MobilePhone
 {
@@ -26,7 +27,6 @@ namespace SimCorp.IMS.MobilePhone
 
         protected Mobile()
         {
-
         }
 
 
@@ -58,6 +58,13 @@ namespace SimCorp.IMS.MobilePhone
             ChargerDevice.Charge();
         }
 
+        public void StartMessaging()
+        {
+            var smsProvider = new SMSProvider(MessageStorage.Capacity);
+            smsProvider.SMSReceived += new SMSReceivedDelegate(MessageStorage.AddMessage);
+            smsProvider.SimulateSMS();
+        }
+
         public string Name { get; set; } = "NewPhone";
         public CircuitBoard CircuitBoard { get; private set; } = new CircuitBoard();
         public Battery Battery { get; private set; } = new Battery();
@@ -68,6 +75,7 @@ namespace SimCorp.IMS.MobilePhone
         public Speaker Speaker { get; private set; } = new Speaker();
         public IPlayback PlayBackComponent { get; set; }
         public ICharger ChargerDevice { get; set; }
-        public SMSProvider SmsProvider { get; set; }
+        public MessageStorage MessageStorage { get; set; } =  new MessageStorage();
+
     }
 }
