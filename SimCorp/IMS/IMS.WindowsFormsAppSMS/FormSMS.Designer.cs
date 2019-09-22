@@ -159,10 +159,12 @@ namespace SimCorp.IMS.WindowsFormsAppSMS
             // 
             // ToDateTimePicker
             // 
+            this.ToDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.ToDateTimePicker.Location = new System.Drawing.Point(172, 129);
             this.ToDateTimePicker.Name = "ToDateTimePicker";
             this.ToDateTimePicker.Size = new System.Drawing.Size(121, 20);
             this.ToDateTimePicker.TabIndex = 7;
+            this.ToDateTimePicker.UseWaitCursor = true;
             this.ToDateTimePicker.ValueChanged += new System.EventHandler(this.ToDateTimePickerOnValueChanged);
             // 
             // FromLabel
