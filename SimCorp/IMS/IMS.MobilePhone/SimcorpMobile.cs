@@ -5,7 +5,7 @@ namespace SimCorp.IMS.MobilePhone
 {
     public class SimcorpMobile : Mobile
     {
-        public SimcorpMobile(string name, CircuitBoard circuitBoard, Battery battery, Antenna antenna,Keyboard keyboard, Microphone microphone, Speaker speaker) : base(name, circuitBoard, battery, antenna, keyboard, microphone, speaker)
+        public SimcorpMobile(string name, CircuitBoard circuitBoard, Battery.Battery battery, Antenna antenna,Keyboard keyboard, Microphone microphone, Speaker speaker) : base(name, circuitBoard, battery, antenna, keyboard, microphone, speaker)
         {
         }
 

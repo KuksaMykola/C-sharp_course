@@ -1,14 +1,16 @@
 ﻿using System.Text;
 using SimCorp.IMS.MobilePhone.Audio;
+using SimCorp.IMS.MobilePhone.Battery;
 using SimCorp.IMS.MobilePhone.Charg;
 using SimCorp.IMS.MobilePhone.Display;
 using SimCorp.IMS.MobilePhone.Message;
 
 namespace SimCorp.IMS.MobilePhone
 {
+    public enum ParallelExectuionType { Thread,Task}
     public abstract class Mobile
     {
-        protected Mobile(string name, CircuitBoard circuitBoard, Battery battery, Antenna antenna, Keyboard keyboard,
+        protected Mobile(string name, CircuitBoard circuitBoard, Battery.Battery battery, Antenna antenna, Keyboard keyboard,
             Microphone microphone, Speaker speaker)
         {
             Name = name;
@@ -60,14 +62,25 @@ namespace SimCorp.IMS.MobilePhone
 
         public void StartMessaging()
         {
-            var smsProvider = new SMSProvider(MessageStorage.Capacity);
-            smsProvider.SMSReceived += new SMSReceivedDelegate(MessageStorage.AddMessage);
-            smsProvider.SimulateSMS();
+            if (SMSProvider == null)
+            {
+                SMSProvider = new SMSProviderUseTasks(MessageStorage.Capacity);
+                SMSProvider.SMSReceived += new SMSReceivedDelegate(MessageStorage.AddMessage);
+            }
+            SMSProvider.StartMessaging();
         }
 
+        public void CloseThreads()
+        {
+            SMSProvider.CloseAllThreadsAndTasks();
+        }
+        public void StopMessaging()
+        {
+            SMSProvider.StopMessaging();
+        }
         public string Name { get; set; } = "NewPhone";
         public CircuitBoard CircuitBoard { get; private set; } = new CircuitBoard();
-        public Battery Battery { get; private set; } = new Battery();
+        public Battery.Battery Battery { get; private set; } = BatteryFactory.Create(ParallelExectuionType.Thread);
         public Antenna Antenna { get; private set; } = new Antenna();
         public abstract Screen Screen { get; }
         public Keyboard Keyboard { get; private set; } = new Keyboard();
@@ -76,6 +89,7 @@ namespace SimCorp.IMS.MobilePhone
         public IPlayback PlayBackComponent { get; set; }
         public ICharger ChargerDevice { get; set; }
         public MessageStorage MessageStorage { get; set; } =  new MessageStorage();
-
+        private SMSProvider SMSProvider { get; set; }
     }
+
 }

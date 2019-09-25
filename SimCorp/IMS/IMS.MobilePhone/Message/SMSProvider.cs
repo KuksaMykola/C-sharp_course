@@ -1,40 +1,42 @@
 using System;
 using System.Diagnostics;
+using System.Threading;
 using System.Timers;
+using Timer = System.Timers.Timer;
 
 namespace SimCorp.IMS.MobilePhone.Message
 {
     public delegate void SMSReceivedDelegate(Message message);
-    internal class SMSProvider
-    { 
+
+
+    internal abstract class SMSProvider
+    {
+        public event SMSReceivedDelegate SMSReceived;
+
         public SMSProvider(int numberOfMessagesToSimulate)
         {
             NumberOfMessagesToSimulate = numberOfMessagesToSimulate;
-            Timer=new Timer(1000);
         }
 
-        public event SMSReceivedDelegate SMSReceived;
+        public abstract void StartMessaging();
+
+        public abstract void CloseAllThreadsAndTasks();
+
         public void SimulateSMS()
         {
-
-            if (SMSReceived != null)
+            while (true)
             {
-                Timer.Elapsed += new ElapsedEventHandler(OnTimerElapsed);
-                Timer.Enabled = true;
+                if (IsRunning && (Counter <= NumberOfMessagesToSimulate))
+                {
+                    SMSReceived?.Invoke(GenrateNewMessage());
+                }
+                Thread.Sleep(TimeInterval);
             }
         }
 
-        private void OnTimerElapsed(Object source, ElapsedEventArgs e)
+        public void StopMessaging()
         {
-            OnSMSReceived(GenrateNewMessage());
-            if (Counter > NumberOfMessagesToSimulate)
-            {
-                Timer.Elapsed -= OnTimerElapsed;
-            }
-        }
-        protected virtual void OnSMSReceived(Message message)
-        {
-            SMSReceived?.Invoke(message);
+            IsRunning = false;
         }
 
         private Message GenrateNewMessage()
@@ -58,5 +60,8 @@ namespace SimCorp.IMS.MobilePhone.Message
             "+380987654321",
             "+380661726354"
         };
+
+        public int TimeInterval { get; set; } = 1000;
+        public bool IsRunning { get; protected set; } = true;
     }
 }

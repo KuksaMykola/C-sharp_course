@@ -9,6 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SimCorp.IMS.MobilePhone;
+using SimCorp.IMS.MobilePhone.Battery;
 using SimCorp.IMS.MobilePhone.Message;
 
 namespace SimCorp.IMS.WindowsFormsAppSMS
@@ -16,7 +17,6 @@ namespace SimCorp.IMS.WindowsFormsAppSMS
     public partial class FormSMS : Form
     {
         private readonly Mobile MobilePhone;
-        private readonly Thread mobilePhoneThread;
         private readonly MessageFormater MessageFormater = new MessageFormater();
 
         public FormSMS()
@@ -25,10 +25,14 @@ namespace SimCorp.IMS.WindowsFormsAppSMS
             InitializeComponent();
             FormattingComboBox.SelectedIndex = 0;
             UserComboBox.SelectedIndex = 0;
-            
+
+            MobilePhone.Battery.PowerDecreased += DecreaseChargeProgressBar;
+            MobilePhone.Battery.PowerIncreased += IncreaseChargeProgressBar;
+            ChargeProgressBar.Value = MobilePhone.Battery.Charge;
+            MobilePhone.Battery.StartDischarging();
+
             MobilePhone.MessageStorage.SMSAdded+=new SMSReceivedDelegate(OnMessageReceivedHandler);
-            mobilePhoneThread=new Thread(MobilePhone.StartMessaging);
-            mobilePhoneThread.Start();
+            MobilePhone.StartMessaging();
         }
 
         private void OnMessageReceivedHandler(MobilePhone.Message.Message message)
@@ -60,7 +64,8 @@ namespace SimCorp.IMS.WindowsFormsAppSMS
 
         private void FormSMSOnClosed(object sender, EventArgs e)
         {
-            mobilePhoneThread.Abort();
+            MobilePhone.Battery.CloseAllThreadsAndTasks();
+            MobilePhone.CloseThreads();
         }
 
         private void UserComboBoxOnSelectedIndexChanged(object sender, EventArgs e)
@@ -116,6 +121,54 @@ namespace SimCorp.IMS.WindowsFormsAppSMS
         private void ToDateTimePickerOnValueChanged(object sender, EventArgs e)
         {
             SetUpFilterParams();
+        }
+
+        private void ChargeOffRadioButtonOnCheckedChanged(object sender, EventArgs e)
+        {
+            if (ChargeOffRadioButton.Checked)
+            {
+                MobilePhone.Battery.PlugOutCharger();
+            }
+            else if (ChargeOnRadioButton.Checked)
+            {
+                MobilePhone.Battery.PlugInCharger();
+            }
+        }
+
+        private void IncreaseChargeProgressBar()
+        {
+            if (ChargeProgressBar.InvokeRequired)
+            {
+                ChargeProgressBar.Invoke(new PowerChangeDelegate(IncreaseChargeProgressBar));
+            }
+            else
+            {
+                ChargeProgressBar.Value += 1;
+            }         
+        }
+
+        private void DecreaseChargeProgressBar()
+        {
+            if (ChargeProgressBar.InvokeRequired)
+            {
+                ChargeProgressBar.Invoke(new PowerChangeDelegate(DecreaseChargeProgressBar));
+            }
+            else
+            {
+                ChargeProgressBar.Value -= 1;
+            }
+        }
+
+        private void GenerateMessageOffRadioButtonOnCheckedChanged(object sender, EventArgs e)
+        {
+            if (GenerateMessageOffRadioButton.Checked)
+            {
+               MobilePhone.StopMessaging(); 
+            }else if(GenerateMessageOnRadioButton.Checked)
+            {
+                MobilePhone.StartMessaging();
+            }
+            
         }
     }
 }

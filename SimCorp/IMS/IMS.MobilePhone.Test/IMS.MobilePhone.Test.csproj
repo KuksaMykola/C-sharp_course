@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="Audio\ExternalPhoneSpeakerTest.cs" />
     <Compile Include="Audio\iPhoneHeadsetTest.cs" />
+    <Compile Include="Battery\BatteryTest.cs" />
     <Compile Include="Charge\PowerBankChargerTest.cs" />
     <Compile Include="Charge\SocetChargerTest.cs" />
     <Compile Include="FakeOutput.cs" />
