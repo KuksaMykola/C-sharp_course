@@ -55,6 +55,9 @@
     <Compile Include="Audio\ExternalPhoneSpeakerTest.cs" />
     <Compile Include="Audio\iPhoneHeadsetTest.cs" />
     <Compile Include="Battery\BatteryTest.cs" />
+    <Compile Include="Calls\CallListTest.cs" />
+    <Compile Include="Calls\CallTest.cs" />
+    <Compile Include="Calls\ContactTest.cs" />
     <Compile Include="Charge\PowerBankChargerTest.cs" />
     <Compile Include="Charge\SocetChargerTest.cs" />
     <Compile Include="FakeOutput.cs" />

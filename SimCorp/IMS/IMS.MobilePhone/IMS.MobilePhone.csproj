@@ -59,6 +59,11 @@
     <Compile Include="Battery\BatteryType.cs" />
     <Compile Include="Battery\BatteryUseTasks.cs" />
     <Compile Include="Battery\BatteryUseThreads.cs" />
+    <Compile Include="Calls\Call.cs" />
+    <Compile Include="Calls\CallList.cs" />
+    <Compile Include="Calls\CallProvider.cs" />
+    <Compile Include="Calls\CallProviderUseThreads.cs" />
+    <Compile Include="Calls\Contact.cs" />
     <Compile Include="Charg\CarCharger.cs" />
     <Compile Include="Charg\ContactlessCharger.cs" />
     <Compile Include="Charg\ICharger.cs" />
